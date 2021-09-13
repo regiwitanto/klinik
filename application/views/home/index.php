@@ -1,7 +1,7 @@
 <div class="container">
   <a>
     <h1 class="display-4">Selamat Datang!</h1>
-    <p class="lead">Ini adalah sistem untuk mengelola data pasien vaksinasi di Laboratorium Klinik
+    <p class="lead">Ini adalah sistem untuk mengelola data pasien di Laboratorium Klinik
       <strong>MITRA MULYA</strong></p>
     <hr class="my-4">
     <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->

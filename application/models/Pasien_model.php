@@ -38,6 +38,14 @@ class Pasien_model extends CI_Model {
     return $this->db->get('pemeriksaan')->result_array();
   }
   
+  public function getPemeriksaanById($id) {
+    $this->db->select('pemeriksaan.*');
+    $this->db->from('pemeriksaan');
+    $this->db->where('pemeriksaan_id', $id);
+
+    return $this->db->get()->row_array();
+  }
+  
   public function tambahDataPasien() {
     $data = [
       "pasien_nama" => $this->input->post('pasien_nama', true),

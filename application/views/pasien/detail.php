@@ -72,6 +72,7 @@
 
       <a href="<?= base_url() ?>pasien" class="btn btn-light">Kembali</a>
       <a href="<?= base_url() ?>pasien/cetak/<?= $pasien['pasien_id'] ?>" class="btn btn-success">Cetak</a>
+      <br><br>
     </div>
   </div>
 

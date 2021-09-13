@@ -113,6 +113,11 @@ class Pasien extends CI_Controller {
     $data['judul'] = 'Cetak Data Pasien';
     $data['pasien'] = $this->pasien->getPasienById($id);
     $pasien = $data['pasien'];
+    $pemeriksaanId = $pasien['pemeriksaan_id'];
+    ($pemeriksaanId == "2") ? $pemeriksaanId = "1" : $pemeriksaanId = "2";
+    $data['pemeriksaan'] = $this->pasien->getPemeriksaanById($pemeriksaanId);
+    $pemeriksaanData = $data['pemeriksaan'];
+    $data['nilai_rujukan_2'] = $pemeriksaanData['nilai_rujukan'];
     
     $this->load->library('pdf');
     $this->pdf->setPaper('A4', 'portrait');

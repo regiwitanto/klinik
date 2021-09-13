@@ -6,49 +6,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $judul;?></title>
   <style>
-    #table1,
-    #table2 {
+    body {
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 13px
     }
 
-    #table1 th,
-    #table2 th {
+    p {
+      margin: 0;
+      padding: 3px;
+    }
+
+    .afterHeader {
+      background-color: #C4EFDB;
+      width: 100%;
+      font-size: 11.5px
+    }
+
+    .tableProfile {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px
+    }
+
+    .tableProfile th {
       padding: 8px;
       text-align: left;
-      background-color: #4AA96C;
       color: white;
     }
 
-    #table1 td {
-      padding: 8px
+    .tableProfile td {
+      padding: 2.7px
     }
 
-    #table2 td {
-      padding: 8px
+    .tableResult {
+      width: 100%;
+      border-spacing: 0;
+      table-layout: fixed;
     }
 
-    #p {
-      background-color: #9FE6A0;
+    .tableResult td:first-letter {
+      text-transform: capitalize;
+    }
+
+    .tableResultHead {
+      background-color: #70C19B;
+      text-transform: uppercase;
+    }
+
+    thead.tableResultHead tr th {
+      border-collapse: collapse;
+      border-bottom: 2.5px solid #322A28;
+      font-size: 12px
+    }
+
+    tbody.tableResultBody tr td {
+      vertical-align: top;
+      border-bottom: 2px solid #B1BEB8;
+      border-collapse: collapse;
+      padding: 10px;
+      font-size: 12px
+    }
+
+    tbody.tableResultBody tr:last-child td {
+      vertical-align: top;
+      border-bottom: none;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+
+    tbody.tableResultBody tr:nth-child(even) {
+      background: #C0E5D4
+    }
+
+    tbody.tableResultBody tr:nth-child(odd) {
+      background: #fff
+    }
+
+    .gridContainerFooter {
+      position: absolute;
+      bottom: 0;
+      text-align: right;
+      font-size: 12px
     }
   </style>
 </head>
 
 <body>
-  <img src="<?= base_url() ?>/assets/img/logo.jpg" alt="" width="100%">
-
-  <table id="table1">
-    <tr>
-      <th>Dokter Penanggung Jawab : <?= $pasien['dokter_nama'] ?></th>
-    </tr>
-  </table>
-
-  <table id="table1">
+  <header>
+    <img src="<?= base_url() ?>/assets/img/logo.jpg" alt="" width="100%">
+  </header>
+  <div class="afterHeader">
+    <p>Dokter Penanggung Jawab : <?= $pasien['dokter_nama'] ?></p>
+  </div>
+  <table class="tableProfile">
     <tr>
       <td>Nama</td>
-      <td>: <?= $pasien['pasien_nama'] ?></td>
+      <td>: <?= $pasien['pasien_nama'] ?>(<?= $pasien['jenis_kelamin'] ? 'L' : 'P'; ?>)</td>
       <td valign="top">Tgl Lahir / Umur</td>
       <td>: <?= date_indo($pasien['tanggal_lahir']); ?> / <?= hitung_umur($pasien['tanggal_lahir']); ?></td>
     </tr>
@@ -60,7 +112,7 @@
     </tr>
     <tr>
       <td>Tlp / HP</td>
-      <td>: <?= $pasien['no_telp']; ?> / <?= $pasien['no_hp']; ?></td>
+      <td>: <?= $pasien['no_telp']; ?> /<?= $pasien['no_hp']; ?></td>
     </tr>
     <tr>
       <td>Pengirim</td>
@@ -72,22 +124,29 @@
     </tr>
   </table>
 
-  <table id="table2">
-    <thead>
+  <table class="tableResult">
+    <thead class="tableResultHead">
       <tr>
         <th>PEMERIKSAAN</th>
         <th>HASIL</th>
         <th>NILAI RUJUKAN</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="tableResultBody">
       <tr>
-        <td>1. <?= $pasien['jenis']; ?></td>
+        <td><?= $pasien['jenis']; ?></td>
+        <td></td>
+        <td></td>
       </tr>
-      <tr id="p">
-        <td valign="top"><?= $pasien['nama']; ?></td>
-        <td valign="top"><strong><?= $pasien['hasil']; ?></strong></td>
-        <td valign="top"><?= $pasien['nilai_rujukan']; ?></td>
+      <tr>
+        <td><?= $pasien['nama']; ?></td>
+        <td><strong><?= $pasien['hasil']; ?></strong></td>
+        <td><?= $pasien['nilai_rujukan']; ?></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><?= $nilai_rujukan_2 ?></td>
       </tr>
       <tr>
         <td></td>
@@ -96,6 +155,10 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="gridContainerFooter">
+    <p><?= 'Bandung, '.date_indo(date('Y-m-d')); ?></p>
+    <p><?= 'Pemeriksa : Acuy' ?></p>
 </body>
 
 </html>
