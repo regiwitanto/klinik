@@ -14,20 +14,17 @@
             <input type="hidden" name="pasien_id" value="<?= $pasien['pasien_id']; ?>">
             <div class="form-group">
               <label for="pasien_nama">Nama Pasien</label>
-              <input type="text" class="form-control" id="pasien_nama" name="pasien_nama"
-                value="<?= $pasien['pasien_nama'] ?>">
+              <input type="text" class="form-control" id="pasien_nama" name="pasien_nama" value="<?= $pasien['pasien_nama'] ?>">
               <small class="form-text text-danger"><?= form_error('pasien_nama'); ?></small>
             </div>
             <label for="jenis_kelamin">Jenis Kelamin</label>
             <div class="form-group">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1" value=1
-                  <?= ($pasien['jenis_kelamin'] == 1 ? ' checked' : ''); ?>>
+                <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1" value=1 <?= ($pasien['jenis_kelamin'] == 1 ? ' checked' : ''); ?>>
                 <label class="form-check-label" for="jenis_kelamin1">Laki-laki</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin0" value=0
-                  <?= ($pasien['jenis_kelamin'] == 0 ? ' checked' : ''); ?>>
+                <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin0" value=0 <?= ($pasien['jenis_kelamin'] == 0 ? ' checked' : ''); ?>>
                 <label class="form-check-label" for="jenis_kelamin0">Perempuan</label>
               </div>
             </div>
@@ -71,8 +68,7 @@
             </div>
             <div class="form-group">
               <label for="tanggal_lahir">Tanggal Lahir</label>
-              <input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
-                value="<?= $pasien['tanggal_lahir'] ?>">
+              <input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $pasien['tanggal_lahir'] ?>">
               <script>
                 $('#tanggal_lahir').datepicker({
                   uiLibrary: 'bootstrap4',
@@ -86,44 +82,42 @@
             <label for="status_hasil">Status Hasil</label>
             <div class="form-group">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="status_hasil" id="status_hasil1" value=1
-                  <?= ($pasien['status_hasil'] == 1 ? ' checked' : ''); ?>>
+                <input class="form-check-input" type="radio" name="status_hasil" id="status_hasil1" value=1 <?= ($pasien['status_hasil'] == 1 ? ' checked' : ''); ?>>
                 <label class="form-check-label" for="status_hasil1">DIAMBIL</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="status_hasil" id="status_hasil0" value=0
-                  <?= ($pasien['status_hasil'] == 0 ? ' checked' : ''); ?>>
+                <input class="form-check-input" type="radio" name="status_hasil" id="status_hasil0" value=0 <?= ($pasien['status_hasil'] == 0 ? ' checked' : ''); ?>>
                 <label class="form-check-label" for="status_hasil0">BELUM DIAMBIL</label>
               </div>
             </div>
             <div class="form-group">
               <label for="dokter_id">Dokter Penanggung Jawab</label>
               <select class="form-control" id="dokter_id" name="dokter_id">
-                <?php foreach($dokter as $d){ ?>
-                <?php if( $d['dokter_id'] == $pasien['dokter_id'] ) : ?>
-                <option value="<?= $d['dokter_id']; ?>" selected><?= $d['dokter_nama']; ?></option>
-                <?php else : ?>
-                <option value="<?= $d['dokter_id']; ?>"><?= $d['dokter_nama']; ?></option>
-                <?php endif; ?>
+                <?php foreach ($dokter as $d) { ?>
+                  <?php if ($d['dokter_id'] == $pasien['dokter_id']) : ?>
+                    <option value="<?= $d['dokter_id']; ?>" selected><?= $d['dokter_nama']; ?></option>
+                  <?php else : ?>
+                    <option value="<?= $d['dokter_id']; ?>"><?= $d['dokter_nama']; ?></option>
+                  <?php endif; ?>
                 <?php } ?>
               </select>
             </div>
             <div class="form-group">
               <label for="pemeriksaan_id">Hasil Pemeriksaan</label>
               <select class="form-control" id="pemeriksaan_id" name="pemeriksaan_id">
-                <?php foreach($pemeriksaan as $p){ ?>
-                <?php if( $p['pemeriksaan_id'] == $pasien['pemeriksaan_id'] ) : ?>
-                <option value="<?= $p['pemeriksaan_id']; ?>" selected><?= $p['jenis']; ?>, <?= $p['nama']; ?>,
-                  <?= $p['hasil']; ?></option>
-                <?php else : ?>
-                <option value="<?= $p['pemeriksaan_id']; ?>"><?= $p['jenis']; ?>, <?= $p['nama']; ?>,
-                  <?= $p['hasil']; ?></option>
-                <?php endif; ?>
+                <?php foreach ($pemeriksaan as $p) { ?>
+                  <?php if ($p['pemeriksaan_id'] == $pasien['pemeriksaan_id']) : ?>
+                    <option value="<?= $p['pemeriksaan_id']; ?>" selected><?= $p['jenis']; ?>, <?= $p['nama']; ?>,
+                      <?= $p['hasil']; ?></option>
+                  <?php else : ?>
+                    <option value="<?= $p['pemeriksaan_id']; ?>"><?= $p['jenis']; ?>, <?= $p['nama']; ?>,
+                      <?= $p['hasil']; ?></option>
+                  <?php endif; ?>
                 <?php } ?>
               </select>
             </div>
             <a href="<?= base_url() ?>pasien" class="btn btn-light">Kembali</a>
-            <button type="submit" name="ubah" class="btn btn-primary">Kirim</button>
+            <button type="submit" name="ubah" class="btn btn-success">Kirim</button>
           </form>
         </div>
       </div>

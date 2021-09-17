@@ -92,22 +92,22 @@
             <div class="form-group">
               <label for="dokter_id">Dokter Penanggung Jawab</label>
               <select class="form-control" id="dokter_id" name="dokter_id">
-                <?php foreach($dokter as $d){ ?>
-                <option value="<?= $d['dokter_id']; ?>"><?= $d['dokter_nama']; ?></option>
+                <?php foreach ($dokter as $d) { ?>
+                  <option value="<?= $d['dokter_id']; ?>"><?= $d['dokter_nama']; ?></option>
                 <?php } ?>
               </select>
             </div>
             <div class="form-group">
               <label for="pemeriksaan_id">Hasil Pemeriksaan</label>
               <select class="form-control" id="pemeriksaan_id" name="pemeriksaan_id">
-                <?php foreach($pemeriksaan as $p){ ?>
-                <option value="<?= $p['pemeriksaan_id']; ?>"><?= $p['jenis']; ?>, <?= $p['nama']; ?>,
-                  <?= $p['hasil']; ?></option>
+                <?php foreach ($pemeriksaan as $p) { ?>
+                  <option value="<?= $p['pemeriksaan_id']; ?>"><?= $p['jenis']; ?>, <?= $p['nama']; ?>,
+                    <?= $p['hasil']; ?></option>
                 <?php } ?>
               </select>
             </div>
             <a href="<?= base_url() ?>pasien" class="btn btn-light">Kembali</a>
-            <button type="submit" name="tambah" class="btn btn-primary">Kirim</button>
+            <button type="submit" name="tambah" class="btn btn-success">Kirim</button>
           </form>
         </div>
       </div>

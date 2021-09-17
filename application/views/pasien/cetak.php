@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $judul;?></title>
+  <title><?= $judul; ?></title>
   <style>
     body {
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -157,8 +157,8 @@
   </table>
 
   <div class="gridContainerFooter">
-    <p><?= 'Bandung, '.date_indo(date('Y-m-d')); ?></p>
-    <p><?= 'Pemeriksa : Acuy' ?></p>
+    <p><?= 'Bandung, ' . date_indo(date('Y-m-d')); ?></p>
+    <p><?= 'Pemeriksa : ' . $name ?></p>
 </body>
 
 </html>
