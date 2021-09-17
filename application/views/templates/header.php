@@ -34,12 +34,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link btn btn-light" href="<?= base_url(); ?>pasien"><strong>Data Pasien</strong></a>
-        </div>
-        <div class="navbar-nav">
-          <a class="nav-item nav-link btn btn-light" href="<?= base_url(); ?>pasien/tambah"><strong>Tambah Data Pasien</strong></a>
-        </div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <strong>Pasien</strong>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<?= base_url(); ?>pasien">Data Pasien</a>
+              <a class="dropdown-item" href="<?= base_url(); ?>pasien/tambah">Tambah Data Pasien</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <strong>Dokter</strong>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<?= base_url(); ?>dokter">Data Dokter</a>
+              <a class="dropdown-item" href="<?= base_url(); ?>dokter/tambah">Tambah Data Dokter</a>
+            </div>
+          </li>
+        </ul>
         <div class="navbar-nav" style="margin-left: auto;">
           <a class="nav-item nav-link btn btn-light" href="<?= base_url(); ?>auth/logout" onclick="return confirm('Apakah anda yakin?')"><strong>Logout</strong></a>
         </div>
